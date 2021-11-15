@@ -9,9 +9,7 @@ OtoBeとは
 # デモページ
 下記よりOtoBeをお試しいただけます
 
-```
-https://otobe-development.github.io/otobe-frontend/
-```
+## https://otobe-development.github.io/otobe-frontend/
 
 # 使い方
 1. デモページor自分で展開したページを開き、右上の「TRY NOW」をクリック
