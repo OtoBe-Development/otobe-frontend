@@ -1,0 +1,45 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger deployment
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: yarn
+
+      - run: yarn install
+      - run: yarn build
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ./dist
+
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: [build]
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Download dist
+        uses: actions/download-artifact@v2
+        with: 
+          name: dist
+          path: ./dist
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
