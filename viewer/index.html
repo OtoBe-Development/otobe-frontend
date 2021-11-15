@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="en-EN" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>OtoBe</title>
+  <link rel="stylesheet" href="style.css">
+  </link>
+  <link href="css/all.min.css" rel="stylesheet">
+
+  <style type='text/css'>
+    body {
+      overflow: auto;
+      overflow-y: auto;
+      background-color: white;
+      margin: 0px;
+    }
+
+    .jeefacetransferCanvas {
+      z-index: 20;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      max-height: 25vh;
+    }
+
+    .webojiCanvas {
+      z-index: 10;
+      position: absolute;
+      max-height: 100%;
+      max-width: 100%;
+      left: 50%;
+      top: 50%;
+      width: 100vmin;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="./js/pdf.js"></script>
+  <script type="text/javascript" src="./js/pdf.worker.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="./js/tweakpane-1.3.2.min.js"></script>
+  <script type="text/javascript" src="./js/three.js"></script>
+  <script type="text/javascript" src="./js/GLTFLoader.js"></script>
+  <script type="text/javascript" src="./js/OrbitControls.js"></script>
+  <script type="text/javascript" src="./js/three-vrm.js"></script>
+  <script type="text/javascript" src="./js/jeelizFaceExpressions.js"></script>
+
+  <video id='myVideo' style="visibility:hidden; position:absolute; z-index: -1;" src='video.mp4' playsinline preload loop></video>
+  <script type="module" src="main.js"></script>
+
+  <div class="jeefacetransferCanvasWrapper">
+    <canvas class='jeefacetransferCanvas' style="display:none" id='jeefacetransferCanvas'></canvas>
+  </div>
+</body>
+</html>
