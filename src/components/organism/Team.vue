@@ -31,17 +31,17 @@ export default {
     cards: [
       {
         name: "あさお",
-        title: "XX卿 / YY",
+        title: "凶血卿 / 連日白昼夢のカフェイントリッパー",
         role: "[前説/〆説担当]",
         comment: "ｺﾞﾘｺﾞﾘの品質保証部門から異動してきたチームのザ・新参者",
-        src: "team/sakoko.png",
+        src: "team/asao.jpg",
         flex: 2
       },
       {
         name: "sakoko",
         title: "幻影卿 / ネットの妖精さここ",
         role: "[ドライバー]",
-        comment: "スクラムが好き。最近はVRやバ美肉に興味アリ",
+        comment: "スクラムが好き。最近はVRやメタバース？に興味アリ",
         src: "team/sakoko.png",
         flex: 2
       },
@@ -51,7 +51,7 @@ export default {
         role: "[主ナビゲーター]",
         comment:
           "コーディングしたい派。PPTとかExcelはもうやじゃ…",
-        src: "team/sakoko.png",
+        src: "team/h-kob.png",
         flex: 2
       },
       {
