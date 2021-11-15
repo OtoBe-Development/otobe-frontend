@@ -56,10 +56,10 @@ export default {
       },
       {
         name: "はしの",
-        title: "XX卿 / YY",
+        title: "豪酒卿 / 飲めば飲むほど冴え渡るアル中エンジニア",
         role: "[副ナビゲーター]",
-        comment: "アジャイル4年生。キャリアについて考えるこの頃",
-        src: "team/sakoko.png",
+        comment: "アジャイル4年生。酒のつまみにキャリアについて考えるこの頃",
+        src: "team/hashino.jpg",
         flex: 2
       },
     ]
