@@ -24,9 +24,10 @@ export default class VrmController {
     }
 
     // 毎フレームやる処理
-    update(delta, headScale, face) {
+    update(delta, modelScale, face) {
         this.resolveIK();
-        this.applyFaceExpressions(headScale, face);
+        this.changeModelScale(modelScale.head, modelScale.hand);
+        this.applyFaceExpressions(face);
         this.vrm.update(delta);
     }
 
@@ -45,17 +46,24 @@ export default class VrmController {
         this.enableIK = this.enableIK ^ true;
     }
 
-    // 顔の表情を変更する
-    applyFaceExpressions(headScale, face) {
-        if (headScale === undefined || face === undefined) {
+    // モデルのサイズを変更する
+    changeModelScale(headScale, handScale){
+        if(headScale === undefined || handScale === undefined){
             return;
         }
-
         // 頭サイズを変更する
-        this.vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.Head).scale.x = headScale;
-        this.vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.Head).scale.y = headScale;
-        this.vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.Head).scale.z = headScale;
+        this.vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.Head).scale.set(headScale, headScale, headScale);
 
+        // 右手サイズを変更する
+        this.vrm.humanoid.getBoneNode(THREE.VRMSchema.HumanoidBoneName.RightHand).scale.set(handScale, handScale, handScale);
+
+    }
+
+    // 顔の表情を変更する
+    applyFaceExpressions(face) {
+        if (face === undefined) {
+            return;
+        }
         // 頭を動かす
         this.rotateBone(THREE.VRMSchema.HumanoidBoneName.Head, face.rotate, 0.5);
         this.rotateBone(THREE.VRMSchema.HumanoidBoneName.Neck, face.rotate, 0.3);
