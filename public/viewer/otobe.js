@@ -93,7 +93,8 @@ export default class Otobe {
 
         // 面白機能
         this.modelScale = {
-            head: 1.0
+            head: 1.0,
+            hand: 1.0
         };
         // カメラの有無フラグ
         this.hasWebcam = false;
@@ -267,6 +268,11 @@ export default class Otobe {
         this.controlPanel = new ControlPanel(this.dom.root, this.configs.debug);
         this.controlPanel.addInput(null, 'head', this.modelScale, {
             label: '頭サイズ',
+            min: 0.5,
+            max: 5.0
+        });
+        this.controlPanel.addInput(null, 'hand', this.modelScale, {
+            label: '手サイズ',
             min: 0.5,
             max: 5.0
         });
@@ -475,7 +481,7 @@ export default class Otobe {
             }
 
             // 最新の情報で3Dモデルを更新する
-            this.vrmController.update(delta, this.modelScale.head, this.face);
+            this.vrmController.update(delta, this.modelScale, this.face);
         }
 
         // レンダリングを実行する
